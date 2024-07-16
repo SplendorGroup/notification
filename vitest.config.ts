@@ -1,6 +1,7 @@
-import path from "path";
+import path from 'path';
+
 import tsconfigPaths from 'vite-tsconfig-paths';
-import { configDefaults, defineConfig } from "vitest/config";
+import { configDefaults, defineConfig } from 'vitest/config';
 
 const aliases = ['infraestructure', 'domain', 'application'];
 
@@ -15,12 +16,7 @@ export default defineConfig({
   test: {
     environment: 'node',
     globals: true,
-    exclude: [
-      '**/prisma/**',
-      '**/dist/**',
-      '**/node_modules/**',
-      '**.module.ts',
-    ],
+    exclude: ['**/prisma/**', '**/dist/**', '**/node_modules/**', '**.module.ts'],
     coverage: {
       provider: 'v8',
       exclude: [
@@ -42,4 +38,3 @@ export default defineConfig({
     },
   },
 });
-

@@ -19,8 +19,16 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@/*": [
-        "./src/*",
+        "src/*"
       ]
     }
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "vitest.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pagamento em Processamento - Splendor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Pagamento em Processamento</h1>
+        </div>
+        <div class="content">
+            <p>Olá, {{name}}</p>
+            <p>Recebemos seu pagamento para a compra do veículo {{vehicle_model}} ({{vehicle_year}}).</p>
+            <p>Seu pagamento está sendo processado. Este processo pode levar alguns minutos.</p>
+            <p>Você receberá uma confirmação assim que o pagamento for aprovado.</p>
+            <p>Se precisar de ajuda ou tiver alguma dúvida, não hesite em <a href="{{support_url}}">entrar em
+                    contato</a> conosco.</p>
+        </div>
+        <div class="footer">
+            <p>Atenciosamente,<br>A equipe Splendor</p>
+        </div>
+    </div>
+</body>
+
+</html>

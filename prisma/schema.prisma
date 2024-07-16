@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model notification_token {
+  id            String         @id @default(uuid()) @map("_id")
+  user_id       String        
+  token         String
+  created_at    DateTime       @default(now()) @map("created_at")
+  updated_at    DateTime?      @updatedAt @map("updated_at")
+
+  @@map("notification_token")
+}
+
+model notification {
+  id         String             @id @default(uuid()) @map("_id")
+  user_id    String
+  token      String
+  title      String
+  body       String
+  type       String
+  priority   String
+  created_at DateTime           @default(now()) @map("created_at")
+  updated_at DateTime?          @updatedAt @map("updated_at")
+
+  @@map("notification")
+}
+
+model mail {
+  id             String          @id @default(uuid()) @map("_id")
+  user_id        String
+  name           String
+  to             String[]
+  subject        String
+  text           String?
+  open           Boolean? @default(false)
+  created_at     DateTime        @default(now()) @map("created_at")
+  updated_at     DateTime?       @updatedAt
+}
+
+model mail_options {
+  id               String          @id @default(uuid()) @map("_id")
+  mail_id          String          @unique
+  template         String
+  html             String?
+}
+
+model mail_variables {
+  id           String         @id @default(uuid()) @map("_id")
+  mail_id      String         
+  mail_options_id String
+  name         String
+  value        String
+}
